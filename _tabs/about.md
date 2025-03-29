@@ -1,8 +1,16 @@
 ---
-# the default layout is 'page'
+title: About
 icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
+Hello! I'm Usman, a writer of short fiction. This site hosts my collection of stories, organized into thematic anthologies.
+
+## My Writing
+
+AI inspired/assisted short stories.  Is this creative writing?
+
+
+## Contact
+
 {: .prompt-tip }
