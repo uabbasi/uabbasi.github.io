@@ -2,7 +2,6 @@
 title: "The Tale of Three Apples"
 date: 2025-03-29
 categories: [Sci-fi, Dystopia]  # This determines which anthology it belongs to
-theme: chirpy
 layout: page
 ---
 
@@ -10,6 +9,8 @@ layout: page
 Scheherazade activated her neural implant, uploading tonight's tale directly to King Shahriyar's consciousness. Was this the 537th night or the 537th simulation of night? The palace walls seemed to pulse slightly, as if breathing. The King's eyes reflected nothing, pupils dilated from the mood stabilizers pumped through the royal water supply.
 
 She began the transmission:
+
+---
 
 ## The First Apple: Reality Glitch
 
@@ -111,8 +112,6 @@ Perhaps Malik himself was a fiction, a character in a tale told by another consc
 
 He placed the apple in his drawer and returned to his assigned functions. One more day in Al-Masqat, where reality was determined by consensus protocols, truth was a probability assessment, and the greatest crime was questioning the parameters of existence itself.
 
----
----
 ---
 
 Scheherazade terminated the transmission. King Shahriyar blinked rapidly, neural pathways recalibrating after the story download.
