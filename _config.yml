@@ -7,6 +7,10 @@ darkmode: true
 
 # Build settings
 remote_theme: chesterhow/tale
+sass:
+  style: compressed
+  sourcemap: never
+  # Note: @import deprecation warnings come from the remote theme and can be safely ignored
 plugins:
   - jekyll-remote-theme
   - jekyll-paginate

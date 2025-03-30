@@ -1,6 +1,6 @@
 ---
 title: "The Tale of Three Apples"
-date: 2025-03-25
+date: 2025-03-29
 categories: [Science Fiction, Dystopia]
 tags: [future, implants, water crisis, surveillance]
 layout: post
