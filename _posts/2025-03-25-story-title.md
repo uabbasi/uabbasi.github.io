@@ -1,8 +1,10 @@
 ---
 title: "The Tale of Three Apples"
-date: 2025-03-29
-categories: [Sci-fi, Dystopia]  # This determines which anthology it belongs to
-layout: page
+date: 2025-03-25
+categories: [Science Fiction, Dystopia]
+tags: [future, implants, water crisis, surveillance]
+layout: post
+description: "In a world where reality is corporate-owned, an enforcer investigates a mysterious woman found with three impossible apples."
 ---
 
 

@@ -4,15 +4,14 @@ source "https://rubygems.org"
 
 gem "jekyll", "~> 4.3"
 gem "webrick", "~> 1.7" # Needed for Ruby 3.0+ with Jekyll
+gem "jekyll-remote-theme", "~> 0.4.3"
 
 gem "html-proofer", "~> 5.0", group: :test
 
 group :jekyll_plugins do
-  gem "jekyll-sitemap"
   gem "jekyll-feed"
   gem "jekyll-seo-tag"
   gem "jekyll-paginate"
-  gem "jekyll-postfiles"
 end
 
 platforms :mingw, :x64_mingw, :mswin, :jruby do

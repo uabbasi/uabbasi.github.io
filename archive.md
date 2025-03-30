@@ -2,20 +2,32 @@
 title: Archive
 permalink: /archive/
 layout: page
-excerpt: All stories I've written.
 ---
 
-<div class="archive-tags">
-  <a href="/tags/">Browse by Tag</a>
-</div>
+<ul class="archive-list">
+  {% for post in site.posts %}
+    <li>
+      <time datetime="{{ post.date }}" class="catalogue-time">{{ post.date | date: "%B %d, %Y" }}</time>
+      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
 
-{% for post in site.posts %}
-<div class="archive-item">
-  <span class="post-date archive-date">
-    {{ post.date | date: "%b %d, %Y" }}
-  </span>
-  <a href="{{ post.url }}" class="archive-title">
-    {{ post.title }}
-  </a>
-</div>
-{% endfor %}
+<style>
+  .archive-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .archive-list li {
+    margin-bottom: 1rem;
+  }
+  
+  .archive-list .catalogue-time {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 0.2rem;
+  }
+</style>
