@@ -1,0 +1,15 @@
+// Import variables which are used by mixins
+@use "variables" as vars;
+
+// Media query mixin
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+// Relative font size mixin
+@mixin relative-font-size($ratio) {
+  font-size: vars.$base-font-size * $ratio;
+}
+

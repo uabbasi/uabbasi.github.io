@@ -1,31 +1,75 @@
-# Site basics
-theme: jekyll-theme-chirpy
-lang: en
-timezone: America/New_York  # Change to your timezone
-
-# Site info
+# Site settings
 title: My Stories
-tagline: Short Fiction Collection
 description: A collection of original short stories
-url: "https://uabbasi.github.io"
+lang: en-US
+timezone: America/New_York
+image: assets/img/ogp.png
+mode: dark
 
-# Your info
-github:
-  username: uabbasi
-
-social:
+# Profile settings
+author:
   name: Usman A.
-  links:
-    - https://www.linkedin.com/in/uabbasi
+  bio: >-
+    Writer of short fiction and technology enthusiast.
+  username: uabbasi
+  github: uabbasi
+  linkedin: uabbasi
+  email: your-email@email.com
+  avatar: /assets/img/avatar.jpg
 
-# Display settings
-theme_mode: dark
-avatar: /assets/img/avatar.jpg  # Add an image file here
-toc: true
-
-# Basic settings
-paginate: 10
+# URL settings
+url: "https://uabbasi.github.io"
 baseurl: ""
+permalink: /:title/
+google_analytics: # leave it blank if not wish
+
+# Collection setting
+collections:
+  posts:
+    output: true
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: post
+      comments: false
+
+# Homepage limit posts
+number_of_posts: 5
+
+# Build settings
+sass:
+  style: compressed
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-postfiles
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+include:
+  - _redirects
+  - .htaccess
+
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - CHANGELOG.md
+  - README.md
+  - node_modules
+  - klise-theme/
 
 
 

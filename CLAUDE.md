@@ -8,6 +8,10 @@
 - `bash tools/run.sh` - Run development server with options (-p for production)
 - `bash tools/test.sh` - Build and test with HTML-proofer
 
+## SASS Deprecation Notes
+The site uses Sass with @import rules, which are deprecated in Dart Sass 3.0.0. 
+These warnings can be safely ignored for now, and will need to be migrated in the future.
+
 ## Code Style Guidelines
 - **Ruby**: 2-space indentation, frozen string literals
 - **Markdown**: Use standard Markdown syntax for posts

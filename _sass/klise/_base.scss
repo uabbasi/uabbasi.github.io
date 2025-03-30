@@ -1,0 +1,430 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+@use "sass:color";
+
+// Reset some basic elements
+* {
+  -webkit-transition: background-color 75ms ease-in, border-color 75ms ease-in;
+  -moz-transition: background-color 75ms ease-in, border-color 75ms ease-in;
+  -ms-transition: background-color 75ms ease-in, border-color 75ms ease-in;
+  -o-transition: background-color 75ms ease-in, border-color 75ms ease-in;
+  transition: background-color 75ms ease-in, border-color 75ms ease-in;
+}
+
+.notransition {
+  -webkit-transition: none;
+  -moz-transition: none; 
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dl,
+dd,
+ol,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+// Basic styling
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  color: vars.$text-base-color;
+  background-color: vars.$white;
+  font: vars.$normal-weight #{vars.$base-font-size}/#{vars.$base-line-height} vars.$sans-family;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  box-sizing: border-box;
+}
+
+// Set `margin-bottom` to maintain vertical rhythm
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
+%vertical-rhythm {
+  margin-top: vars.$spacing-full - 20;
+  margin-bottom: vars.$spacing-full - 20;
+}
+
+// strong | bold
+strong,
+b {
+  font-weight: vars.$bold-weight;
+  color: vars.$black;
+}
+
+// horizontal rule
+hr {
+  position: relative;
+  margin: 3em auto;
+  width: 80%;
+  border: 0;
+  height: 2px;
+  transition: all 0.3s ease;
+  
+  // Light theme gradient
+  background-image: linear-gradient(to right, 
+    rgba(vars.$light, 0),
+    rgba(vars.$light, 0.5) 20%,
+    rgba(vars.$red, 0.7) 50%,
+    rgba(vars.$light, 0.5) 80%,
+    rgba(vars.$light, 0)
+  );
+  
+  &::before {
+    content: '✦';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 0 0.8em;
+    color: vars.$red;
+    background: var(--background-color);
+    font-size: 1.3em;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  &:hover {
+    width: 85%;
+    
+    &::before {
+      transform: translateX(-50%) translateY(-50%) rotate(180deg);
+      color: color.adjust(vars.$red, $lightness: 10%);
+    }
+  }
+
+  &.dotted {
+    background: none;
+    height: 3px;
+    border-top: 2px dotted rgba(vars.$red, 0.6);
+    
+    &:hover {
+      border-color: rgba(vars.$red, 0.8);
+    }
+    
+    &::before {
+      content: none;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-image: linear-gradient(to right, 
+      rgba(vars.$dark, 0),
+      rgba(vars.$dark, 0.5) 20%,
+      rgba(vars.$red, 0.7) 50%,
+      rgba(vars.$dark, 0.5) 80%,
+      rgba(vars.$dark, 0)
+    );
+  }
+}
+
+// kbd tag
+kbd {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border: 1px solid vars.$light;
+  border-radius: 2px;
+  color: vars.$black;
+  display: inline-block;
+  font-size: vars.$small-font-size;
+  line-height: 1.4;
+  font-family: vars.$mono-family;
+  margin: 0 0.1em;
+  font-weight: vars.$bold-weight;
+  padding: 0.01em 0.4em;
+  text-shadow: 0 1px 0 vars.$white;
+}
+
+// Image
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  -webkit-user-drag: none;
+  margin: 0 auto;
+  text-align: center;
+}
+
+// Figure
+figure {
+  position: relative;
+}
+
+// Image inside Figure tag
+figure > img {
+  display: block;
+  position: relative;
+}
+
+// Image caption
+figcaption {
+  font-size: 13px;
+  text-align: center;
+}
+
+// List
+ul {
+  list-style: none;
+  li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+  }
+  li::before {
+    content: "\FE63";
+    display: inline-block;
+    top: -1px;
+    width: 1.2em;
+    position: relative;
+    margin-left: -1.3em;
+    font-weight: 700;
+  }
+}
+
+ol {
+  list-style: none;
+  counter-reset: li;
+  li {
+    position: relative;
+    counter-increment: li;
+    &::before {
+      content: counter(li);
+      display: inline-block;
+      width: 1em;
+      margin-right: 0.5em;
+      margin-left: -1.6em;
+      text-align: right;
+      direction: rtl;
+      font-weight: vars.$bold-weight;
+      font-size: vars.$small-font-size;
+    }
+  }
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-left: vars.$spacing-full;
+}
+
+li {
+  padding-bottom: 1px;
+  padding-top: 1px;
+
+  &:before {
+    color: vars.$black;
+  }
+
+  > ul,
+  > ol {
+    margin-bottom: 2px;
+    margin-top: 0;
+  }
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: vars.$black;
+  font-weight: vars.$bold-weight;
+  & + ul,
+  & + ol {
+    margin-top: 10px;
+  }
+
+  @include mix.media-query(vars.$on-mobile) {
+    scroll-margin-top: 65px;
+  }
+}
+
+// Headings with link
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+h6 > a {
+  text-decoration: none;
+  border: none;
+
+  &:hover {
+    text-decoration: none;
+    border: none;
+  }
+}
+
+// Link
+a {
+  color: inherit;
+  text-decoration-color: vars.$smoke;
+
+  &:hover {
+    color: vars.$text-link-blue;
+  }
+
+  &:focus {
+    outline: 3px solid rgba(0, 54, 199, 0.6);
+    outline-offset: 2px;
+  }
+}
+
+// Del
+del {
+  color: inherit;
+}
+
+// Em
+em {
+  color: inherit;
+}
+
+// Blockquotes
+blockquote {
+  color: vars.$gray;
+  font-style: italic;
+  text-align: center;
+  opacity: 0.9;
+  border-top: 1px solid vars.$light;
+  border-bottom: 1px solid vars.$light;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 1em;
+
+  > :last-child {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+// Wrapper
+.wrapper {
+  max-width: -webkit-calc(#{vars.$narrow-size} - (#{vars.$spacing-full} * 2));
+  max-width: calc(#{vars.$narrow-size} - (#{vars.$spacing-full} * 2));
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: vars.$spacing-full;
+  padding-left: vars.$spacing-full;
+  @extend %clearfix;
+
+  @include mix.media-query(vars.$on-mobile) {
+    max-width: -webkit-calc(#{vars.$narrow-size} - (#{vars.$spacing-full}));
+    max-width: calc(#{vars.$narrow-size} - (#{vars.$spacing-full}));
+    padding-right: vars.$spacing-full - 10;
+    padding-left: vars.$spacing-full - 10;
+
+    &.blurry {
+      animation: 0.2s ease-in forwards blur;
+      -webkit-animation: 0.2s ease-in forwards blur;
+    }
+  }
+}
+
+// Underline
+u {
+  text-decoration-color: #d2c7c7;
+}
+
+// Small
+small {
+  font-size: vars.$small-font-size;
+}
+
+// Superscript
+sup {
+  border-radius: 10%;
+  top: -3px;
+  left: 2px;
+  font-size: small;
+  position: relative;
+  margin-right: 2px;
+}
+
+// Table
+.overflow-table {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  margin-top: vars.$spacing-half;
+  border-collapse: collapse;
+  font-size: vars.$small-font-size;
+
+  thead {
+    font-weight: vars.$bold-weight;
+    color: vars.$black;
+    border-bottom: 1px solid vars.$light;
+  }
+
+  th,
+  td,
+  tr {
+    border: 1px solid vars.$light;
+    padding: 2px 7px;
+  }
+}
+
+// Clearfix
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+// When mouse block a text set this color
+mark,
+::selection {
+  background: #fffba0;
+  color: vars.$black;
+}
+
+// Github Gist clear border
+.gist {
+  table {
+    border: 0;
+
+    tr,
+    td {
+      border: 0;
+    }
+  }
+}

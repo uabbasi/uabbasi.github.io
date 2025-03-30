@@ -112,6 +112,8 @@ Perhaps Malik himself was a fiction, a character in a tale told by another consc
 He placed the apple in his drawer and returned to his assigned functions. One more day in Al-Masqat, where reality was determined by consensus protocols, truth was a probability assessment, and the greatest crime was questioning the parameters of existence itself.
 
 ---
+---
+---
 
 Scheherazade terminated the transmission. King Shahriyar blinked rapidly, neural pathways recalibrating after the story download.
 
